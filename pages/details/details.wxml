@@ -20,7 +20,7 @@
 			</view>
 		</view>
 		<view class="hmly-bar-item-bottom">
-			<button class="hmly-share-but"><text class="icon-share"></text> 分享</button>
+			<button class="hmly-share-but" open-type="share"><text class="icon-share" ></text> 分享</button>
 			<button class="hmly-collection"><text class="icon-add"></text> 收藏</button>
 		</view>
 	</view>
