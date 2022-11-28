@@ -41,7 +41,33 @@ Page({
 		swiperCurrent: 0,
 	},
 	onLoad: function (options) {
-		const that = this
+    const that = this
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline'],
+      success: function(res) {
+        console.log('showShareMenu success', res)
+      }
+    })
+    wx.getShareInfo({
+      shareTicket: app.globalData.shareTicket,
+      success: function(res) {
+        that.setData({
+          group: res.errMsg
+        })
+        console.log('getShareInfo success', res)
+        // res
+        // {
+        //   errMsg: 'authPrivateMessage:ok'
+        //   valid: true
+        //   iv: 'xxxx',
+        //   encryptedData: 'xxxxxx'
+        // }
+      },
+      fail: function(res) {
+        console.log('getShareInfo fail', res)
+      }
+    })
 		myRequest.getData().then(res => {
 			const {guess,hotRecommends} = res.data
 			that.setData({

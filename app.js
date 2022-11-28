@@ -1,6 +1,8 @@
 //app.js
 App({
-	onLaunch: function () {
+	onLaunch: function (e) {
+    //onLaunch事件里获取shareTicket
+    this.globalData.shareTicket = e.shareTicket
 		// 获取用户信息
 		wx.getSetting({
 			success: res => {
@@ -23,6 +25,7 @@ App({
 		})
 	},
 	globalData: {
-		userInfo: null
+    userInfo: null,
+    shareTicket: null
 	}
 })
